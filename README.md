@@ -1,7 +1,7 @@
 # SiRP : Secure (interoperable) Remote Password Authentication
 
 [![Gem Version](https://badge.fury.io/rb/fastlane-sirp.svg)](https://badge.fury.io/rb/fastlane-sirp)
-[![Build Status](https://travis-ci.org/grempe/sirp.svg?branch=master)](https://travis-ci.org/grempe/sirp)
+[![Test](https://github.com/fastlane/fastlane-sirp/actions/workflows/test.yml/badge.svg)](https://github.com/fastlane/fastlane-sirp/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/fastlane/fastlane-sirp/badge.svg?branch=master)](https://coveralls.io/github/grempe/sirp?branch=master)
 
 Ruby Docs : [http://www.rubydoc.info/gems/fastlane-sirp](http://www.rubydoc.info/gems/sirp)
