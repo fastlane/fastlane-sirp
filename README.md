@@ -1,12 +1,10 @@
 # SiRP : Secure (interoperable) Remote Password Authentication
 
-[![Gem Version](https://badge.fury.io/rb/sirp.svg)](https://badge.fury.io/rb/sirp)
+[![Gem Version](https://badge.fury.io/rb/fastlane-sirp.svg)](https://badge.fury.io/rb/fastlane-sirp)
 [![Build Status](https://travis-ci.org/grempe/sirp.svg?branch=master)](https://travis-ci.org/grempe/sirp)
-[![Coverage Status](https://coveralls.io/repos/github/grempe/sirp/badge.svg?branch=master)](https://coveralls.io/github/grempe/sirp?branch=master)
-[![Code Climate](https://codeclimate.com/github/grempe/sirp/badges/gpa.svg)](https://codeclimate.com/github/grempe/sirp)
-[![Inline docs](http://inch-ci.org/github/grempe/sirp.svg?branch=master)](http://inch-ci.org/github/grempe/sirp)
+[![Coverage Status](https://coveralls.io/repos/github/fastlane/fastlane-sirp/badge.svg?branch=master)](https://coveralls.io/github/grempe/sirp?branch=master)
 
-Ruby Docs : [http://www.rubydoc.info/gems/sirp](http://www.rubydoc.info/gems/sirp)
+Ruby Docs : [http://www.rubydoc.info/gems/fastlane-sirp](http://www.rubydoc.info/gems/sirp)
 
 This is a pure Ruby implementation of the
 [Secure Remote Password](http://srp.stanford.edu/) protocol (SRP-6a),
@@ -38,24 +36,15 @@ SiRP is designed to be interoperable with a Ruby client and server, or
 with Ruby on the server side, and the [JSRP](https://github.com/alax/jsrp)
 Javascript client running in a browser.
 
-## Live Demo
-
-You can try out an interactive demo at
-[https://sirp-demo.herokuapp.com/index.html](https://sirp-demo.herokuapp.com/index.html).
-
-[Demo Source Code @ grempe/sirp-demo](https://github.com/grempe/sirp-demo)
-
 ## Documentation
 
 There is pretty extensive inline documentation. You can view the latest
-API docs at [http://www.rubydoc.info/gems/sirp](http://www.rubydoc.info/gems/sirp)
+API docs at [http://www.rubydoc.info/gems/fastlane-sirp](http://www.rubydoc.info/gems/fastlane-sirp)
 
-You can check my documentation quality score at
-[http://inch-ci.org/github/grempe/sirp](http://inch-ci.org/github/grempe/sirp?branch=master)
 
 ## Supported Platforms
 
-SiRP is continuously integration tested on the versions of MRI Ruby found in the `.travis.yml` file.
+SiRP is continuously integration tested on the versions of MRI Ruby found in the GitHub Actions.
 
 This may work with other Ruby versions, but they are not supported.
 
@@ -64,7 +53,7 @@ This may work with other Ruby versions, but they are not supported.
 Add this line to your application's `Gemfile`:
 
 ```ruby
-gem 'sirp', '~> 2.0'
+gem 'fastlane-sirp', '~> 1.0'
 ```
 
 And then execute:
@@ -76,7 +65,7 @@ $ bundle
 Or install it yourself as:
 
 ```sh
-$ gem install sirp
+$ gem install fastlane-sirp
 ```
 
 ## Compatibility
@@ -264,12 +253,11 @@ end
 
 ## History
 
-This gem is a fork of the [lamikae/srp-rb](https://github.com/lamikae/srp-rb)
-repository created by Mikael Lammentausta [@lamikae](https://github.com/lamikae).
-Significant changes were needed for my use-case which demanded breaking changes
-for the sake of greater interoperability. With these factors in mind, a hard
-fork seemed the most appropriate path to take. Much credit is due to Mikael for
-his original implementation.
+The fork tree is rather long:
+
+ - This gem (fastlane-sirp) is a fork of [snatchev/sirp](https://github.com/snatchev/sirp)
+ - which is a fork of [grempe/sirp](https://github.com/grempe/sirp)
+ - which is a hard fork of [lamikae/srp-rb](https://github.com/lamikae/srp-rb)
 
 ## Development
 
@@ -283,9 +271,7 @@ The formal release process can be found in [RELEASE.md](https://github.com/gremp
 
 ### Contributing
 
-Bug reports and pull requests are welcome on GitHub
-at [https://github.com/grempe/sirp](https://github.com/grempe/sirp). This
-project is intended to be a safe, welcoming space for collaboration, and
+This project is intended to be a safe, welcoming space for collaboration, and
 contributors are expected to adhere to the
 [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
