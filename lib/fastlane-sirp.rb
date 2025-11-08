@@ -1,6 +1,6 @@
 require 'openssl'
 require 'digest'
-require 'sysrandom/securerandom'
+require 'securerandom'
 require 'fastlane-sirp/sirp'
 require 'fastlane-sirp/parameters'
 require 'fastlane-sirp/client'

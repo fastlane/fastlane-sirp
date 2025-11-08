@@ -34,9 +34,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  # See : https://bugs.ruby-lang.org/issues/9569
-  spec.add_runtime_dependency 'sysrandom', '~> 1.0'
-
   spec.add_development_dependency 'bundler'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.4'
