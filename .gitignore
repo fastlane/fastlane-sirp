@@ -10,4 +10,5 @@
 /examples/.bundle/
 /examples/Gemfile.lock
 .DS_Store
-
+.idea
+/vendor
