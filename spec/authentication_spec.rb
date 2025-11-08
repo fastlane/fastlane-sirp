@@ -136,5 +136,44 @@ describe SIRP do
       expect(client.verify(server_H_AMK)).to be true
       expect(client.K).to eq verifier.K
     end
+
+    it 'should authenticate when both registration and login use encrypted password mode' do
+      client = SIRP::Client.new(1024)
+      verifier = SIRP::Verifier.new(1024)
+
+      # Use the same username/salt but recompute the verifier as if the server
+      # had registered the user with the encrypted-password path.
+      salt = @auth[:salt]
+
+      # pre-hashed password: H(username:password) in hex used for encrypted mode
+      xpassword = Digest::SHA1.hexdigest([@username, 'icnivad'].join(':'))
+
+      # Compute x via calc_x_hex and then the corresponding verifier v = g^x (mod N)
+      x = verifier.calc_x_hex(xpassword, salt, verifier.hash)
+      v_hex = verifier.num_to_hex(verifier.calc_v(x, verifier.N, verifier.g))
+
+      # phase 1 (client)
+      aa = client.start_authentication
+
+      # phase 1 (server) with encrypted-registration verifier
+      cp = verifier.get_challenge_and_proof(@username, v_hex, salt, aa)
+
+      # phase 2 (client) using encrypted password path
+      client_M = client.process_challenge(@username, xpassword, salt, cp[:proof][:B], is_password_encrypted: true)
+
+      # client computed values are present
+      expect(client.A).to be_truthy
+      expect(client.M).to eq client_M
+      expect(client.K).to be_truthy
+      expect(client.H_AMK).to be_truthy
+
+      # phase 2 (server) — should succeed because server verifier matches encrypted mode
+      proof = { A: aa, B: cp[:proof][:B], b: cp[:proof][:b], I: @username, s: salt, v: v_hex }
+      server_H_AMK = verifier.verify_session(proof, client_M)
+      expect(server_H_AMK).to be_truthy
+
+      # client should accept successful server verification
+      expect(client.verify(server_H_AMK)).to be true
+    end
   end
 end
