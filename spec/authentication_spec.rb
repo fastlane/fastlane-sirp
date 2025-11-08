@@ -152,13 +152,13 @@ describe SIRP do
       x = verifier.calc_x_hex(xpassword, salt, verifier.hash)
       v_hex = verifier.num_to_hex(verifier.calc_v(x, verifier.N, verifier.g))
 
-      # phase 1 (client)
+      # P1 : client
       aa = client.start_authentication
 
-      # phase 1 (server) with encrypted-registration verifier
+      # P1 : (server) with encrypted-registration verifier
       cp = verifier.get_challenge_and_proof(@username, v_hex, salt, aa)
 
-      # phase 2 (client) using encrypted password path
+      # P2 : (client) using encrypted password path
       client_M = client.process_challenge(@username, xpassword, salt, cp[:proof][:B], is_password_encrypted: true)
 
       # client computed values are present
@@ -167,7 +167,7 @@ describe SIRP do
       expect(client.K).to be_truthy
       expect(client.H_AMK).to be_truthy
 
-      # phase 2 (server) — should succeed because server verifier matches encrypted mode
+      # P2 : (server) — should succeed because server verifier matches encrypted mode
       proof = { A: aa, B: cp[:proof][:B], b: cp[:proof][:b], I: @username, s: salt, v: v_hex }
       server_H_AMK = verifier.verify_session(proof, client_M)
       expect(server_H_AMK).to be_truthy
