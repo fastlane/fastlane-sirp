@@ -3,8 +3,6 @@
 [![Gem Version](https://badge.fury.io/rb/fastlane-sirp.svg)](https://badge.fury.io/rb/fastlane-sirp)
 [![Test](https://github.com/fastlane/fastlane-sirp/actions/workflows/test.yml/badge.svg)](https://github.com/fastlane/fastlane-sirp/actions/workflows/test.yml)
 
-Ruby Docs : [http://www.rubydoc.info/gems/fastlane-sirp](http://www.rubydoc.info/gems/sirp)
-
 This is a pure Ruby implementation of the
 [Secure Remote Password](http://srp.stanford.edu/) protocol (SRP-6a),
 which is a 'zero-knowledge' mutual authentication system.
@@ -40,32 +38,11 @@ Javascript client running in a browser.
 There is pretty extensive inline documentation. You can view the latest
 API docs at [http://www.rubydoc.info/gems/fastlane-sirp](http://www.rubydoc.info/gems/fastlane-sirp)
 
-
 ## Supported Platforms
 
 SiRP is continuously integration tested on the versions of MRI Ruby found in the GitHub Actions.
 
 This may work with other Ruby versions, but they are not supported.
-
-## Installation
-
-Add this line to your application's `Gemfile`:
-
-```ruby
-gem 'fastlane-sirp', '~> 1.0'
-```
-
-And then execute:
-
-```sh
-$ bundle
-```
-
-Or install it yourself as:
-
-```sh
-$ gem install fastlane-sirp
-```
 
 ## Compatibility
 
