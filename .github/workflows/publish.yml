@@ -10,7 +10,7 @@ jobs:
     environment: deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Ignore changes to .bundle/config
         run: git update-index --skip-worktree .bundle/config
@@ -19,7 +19,7 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-          ruby-version: 3.2
+          ruby-version: 3.4
 
       - name: Debug git status
         run: |
