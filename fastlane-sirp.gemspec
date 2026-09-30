@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Glenn Rempe', 'lamikae', 'snatchev', 'joshdholtz', 'iBotPeaches']
   spec.email         = ['me@joshholtz.com']
 
-  spec.required_ruby_version = '>= 3.0.0'
+  spec.required_ruby_version = '>= 3.2.0'
   spec.summary       = 'Secure (interoperable) Remote Password Auth (SRP-6a)'
   spec.description   = <<-EOF
     A Ruby implementation of the Secure Remote Password protocol (SRP-6a).
