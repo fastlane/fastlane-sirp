@@ -8,10 +8,17 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        ruby-version: ['3.3', '3.4', '4.0']
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        ruby-version: ['4.0']
+        include:
+          - os: ubuntu-latest
+            ruby-version: '3.3'
+          - os: ubuntu-latest
+            ruby-version: '3.4'
     steps:
       - uses: actions/checkout@v7
 
@@ -28,5 +35,5 @@ jobs:
         uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: test-results-ruby-${{ matrix.ruby-version }}
+          name: test-results-${{ matrix.os }}-ruby-${{ matrix.ruby-version }}
           path: test-results
